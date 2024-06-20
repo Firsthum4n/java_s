@@ -28,8 +28,41 @@ const isProgrammer = true
 // console.log(num3)
 
 const resultElement = document.getElementById('result')
-const res1 = document.getElementById('input1')
-const res2 = document.getElementById('input2')
-console.log(resultElement.textContent)
-resultElement.textContent = res1
+const input1 = document.getElementById('input1')
+const input2 = document.getElementById('input2')
+const submitBtn = document.getElementById('submit')
+const plustBtn = document.getElementById('plus')
+const minustBtn = document.getElementById('minus')
+
+plustBtn.onclick = function () {
+    action = '+'
+}
+
+minustBtn.onclick = function () {
+    action = '-'
+}
+
+
+
+submitBtn.onclick = function () {
+    if (action == '+') {
+        const sum = Number(input1.value) + Number(input2.value)
+        if (sum < 0) {
+            resultElement.style.color = 'red'
+        } else {
+            resultElement.style.color = 'green'
+        }
+        resultElement.textContent = sum
+    } else if (action == '-') {
+        const sum = Number(input1.value) - Number(input2.value)
+        if (sum < 0) {
+            resultElement.style.color = 'red'
+        } else {
+            resultElement.style.color = 'green'
+        }
+        resultElement.textContent = sum
+    }
+
+    
+}
 
